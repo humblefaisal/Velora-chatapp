@@ -73,7 +73,7 @@ async function connectDatabase() {
   let primaryUri = process.env.MONGODB_URI;
   const dbUser = process.env.MONGO_DB_USER || process.env.MONGO_USER || process.env.MONGODB_USER;
   const dbPass = process.env.MONGO_DB_PASSWORD || process.env.MONGO_PASSWORD || process.env.MONGODB_PASSWORD;
-  const dbHost = process.env.MONGO_DB_HOST || process.env.MONGO_HOST || 'myapp-db.njnltqb.mongodb.net';
+  const dbHost = process.env.MONGO_DB_HOST || process.env.MONGO_HOST || '127.0.0.1:27017';
   const dbName = process.env.MONGO_DB_NAME || process.env.MONGO_DATABASE || 'velora_chat';
   const authSource = process.env.MONGO_DB_AUTH_SOURCE || process.env.MONGO_AUTH_SOURCE;
 
@@ -338,7 +338,7 @@ io.on('connection', (socket) => {
       // Check pending signups first (account creation deferred until OTP verification)
       const pending = pendingSignups.get(cleanEmail);
       if (pending) {
-        const isBypass = cleanOtp === '000000';
+        const isBypass = process.env.NODE_ENV !== 'production' && cleanOtp === '000000';
         if (!isBypass && (!pending.otp || !pending.otpExpires || pending.otpExpires < new Date())) {
           return reply({ ok: false, error: 'Verification code has expired. Please sign up again.' });
         }
@@ -378,7 +378,7 @@ io.on('connection', (socket) => {
         return reply({ ok: true, user: user.username, groups });
       }
 
-      const isBypass = cleanOtp === '000000';
+      const isBypass = process.env.NODE_ENV !== 'production' && cleanOtp === '000000';
       if (!isBypass && (!user.otp || !user.otpExpires || user.otpExpires < new Date())) {
         return reply({ ok: false, error: 'Verification code has expired. Please request a new one.' });
       }
