@@ -39,6 +39,26 @@
   font-family: 'DM Sans';
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.invite-btn {
+  font-size: 14px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.invite-btn:hover {
+  background: #3c4239;
+  color: #d9b77b;
+  transform: translateY(-1px);
+}
+
 .members {
   display: flex;
   align-items: center;

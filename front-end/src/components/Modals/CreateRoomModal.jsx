@@ -6,15 +6,24 @@ export default function CreateRoomModal({ onClose, onCreate }) {
   const [groupDesc, setGroupDesc] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
   const [groupPasscode, setGroupPasscode] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!groupName.trim()) return;
+    setError('');
+    if (!groupName.trim()) {
+      setError('Please enter a room name.');
+      return;
+    }
+    if (isPrivate && !groupPasscode.trim()) {
+      setError('A passcode is required for private rooms.');
+      return;
+    }
     onCreate({
       name: groupName.trim(),
       description: groupDesc.trim(),
       isPrivate,
-      passcode: groupPasscode,
+      passcode: groupPasscode.trim(),
     });
   };
 
@@ -55,7 +64,7 @@ export default function CreateRoomModal({ onClose, onCreate }) {
 
           {isPrivate && (
             <label>
-              Room Passcode (Optional)
+              Room Passcode (Required)
               <input
                 type="password"
                 value={groupPasscode}
@@ -64,6 +73,8 @@ export default function CreateRoomModal({ onClose, onCreate }) {
               />
             </label>
           )}
+
+          {error && <p className="error" style={{ color: '#ef4444', fontSize: '13px', marginTop: '8px' }}>{error}</p>}
 
           <div className="modal-actions">
             <button type="button" className="text-button" onClick={onClose}>

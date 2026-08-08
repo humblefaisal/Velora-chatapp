@@ -1,6 +1,6 @@
 import './Chat.css';
 
-export default function ChatHeader({ active, online }) {
+export default function ChatHeader({ active, online, onInvite }) {
   return (
     <header>
       <div>
@@ -10,15 +10,27 @@ export default function ChatHeader({ active, online }) {
         </h2>
         {active?.description && <p className="room-desc">{active.description}</p>}
       </div>
-      <div className="members">
-        <div className="member-stack">
-          {online.slice(0, 3).map((name, index) => (
-            <span key={name} style={{ zIndex: 3 - index }}>
-              {name[0]?.toUpperCase() || '?'}
-            </span>
-          ))}
+      <div className="header-actions">
+        {active?.isPrivate && (
+          <button
+            type="button"
+            className="icon-button invite-btn"
+            onClick={onInvite}
+            title="Invite Member to Room"
+          >
+            👤+
+          </button>
+        )}
+        <div className="members">
+          <div className="member-stack">
+            {online.slice(0, 3).map((name, index) => (
+              <span key={name} style={{ zIndex: 3 - index }}>
+                {name[0]?.toUpperCase() || '?'}
+              </span>
+            ))}
+          </div>
+          <small>{online.length} here now</small>
         </div>
-        <small>{online.length} here now</small>
       </div>
     </header>
   );
