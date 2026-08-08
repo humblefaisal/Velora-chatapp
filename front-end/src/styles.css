@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f4f1eb;
+  background: #171918;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Common Branding & Typography */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 10px;
+  background: #d9b77b;
+  color: #1f211e;
+  font-family: 'DM Sans';
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.eyebrow,
+.section-label {
+  font: 500 10px 'DM Mono';
+  letter-spacing: 1.5px;
+  color: #b9aa91;
+  margin: 30px 0 10px;
+}
+
+.muted {
+  line-height: 1.55;
+  color: #afb3aa;
+  margin: 0 0 28px;
+}
+
+/* Common Buttons & Inputs */
+.primary {
+  border: 0;
+  background: #d9b77b;
+  color: #25261f;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 13px;
+  transition: 0.2s;
+}
+
+.primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.primary span {
+  padding-left: 7px;
+}
+
+.primary.small {
+  padding: 7px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.text-button {
+  margin-top: 19px;
+  background: none;
+  border: 0;
+  color: #c7b28b;
+  font-size: 13px;
+}
+
+.icon-button {
+  border: 0;
+  background: #30342e;
+  color: #e4d7bd;
+  font-size: 21px;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+}
+
+/* Common Feedback Alerts */
+.error,
+.toast {
+  color: #ffb5aa;
+  font-size: 13px;
+  margin: 0;
+}
+
+.toast {
+  position: absolute;
+  bottom: 80px;
+  left: 42px;
+  background: #512e29;
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+
+.server-warning {
+  background: rgba(235, 87, 87, 0.15);
+  border: 1px solid rgba(235, 87, 87, 0.3);
+  color: #ff9e9e;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-banner {
+  background: rgba(217, 183, 123, 0.15);
+  border: 1px solid rgba(217, 183, 123, 0.3);
+  color: #e8d19e;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

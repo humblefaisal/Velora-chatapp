@@ -1,0 +1,144 @@
+.sidebar {
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+  background: #20231f;
+  border-right: 1px solid #383b35;
+  padding: 21px 14px;
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 28px 8px 20px;
+  border-bottom: 1px solid #343731;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  background: #d9b77b;
+  color: #25261f;
+  border-radius: 50%;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+}
+
+.profile strong {
+  font-size: 14px;
+}
+
+.profile small {
+  display: block;
+  color: #a5a99f;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.profile i,
+.online-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #81c9a3;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.offline-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #e57373;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.room-nav {
+  display: grid;
+  gap: 3px;
+}
+
+.room {
+  border: 0;
+  background: none;
+  color: #aeb1a9;
+  text-align: left;
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.room-prefix {
+  color: #817a6d;
+  margin-right: 10px;
+}
+
+.room-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.room:hover,
+.room.selected {
+  background: #31352f;
+  color: #f3eee4;
+}
+
+.room.selected .room-prefix {
+  color: #d9b77b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  color: #777d73;
+  font: 11px 'DM Mono';
+  padding: 10px 8px;
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 78px;
+    padding: 18px 8px;
+  }
+  .sidebar .brand span:last-child,
+  .profile > div:last-child,
+  .section-label,
+  .room-name {
+    font-size: 0;
+  }
+  .sidebar .brand-mark {
+    display: grid;
+  }
+  .profile {
+    justify-content: center;
+  }
+  .room {
+    height: 40px;
+    justify-content: center;
+  }
+  .room-prefix {
+    font-size: 20px;
+    margin: 0;
+  }
+  .sidebar-foot {
+    display: none;
+  }
+}
