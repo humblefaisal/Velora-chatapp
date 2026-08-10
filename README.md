@@ -13,6 +13,7 @@ A sleek, real-time web chat application featuring public & private passcode-prot
 
 ---
 
+
 ## ✨ Features
 
 - 🔐 **Authentication & Security**: Email/password authentication, Google OAuth sign-in, and 6-digit OTP verification.
@@ -23,6 +24,7 @@ A sleek, real-time web chat application featuring public & private passcode-prot
 - 📁 **Attachment Sharing**: Upload images and documents directly within chat channels.
 - 🎨 **Modern Dark-Mode UI**: Built with React and tailored CSS for a smooth, premium user experience.
 - 🏗️ **Modular Backend Architecture**: Clean separation into config, services, HTTP REST routes, and WebSocket event handlers.
+-  **Running live**: https://velora-chatapp.vercel.app.
 
 ---
 
